@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Casa de Cambio — EUR/USD y más</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Ctext y='1em' font-size='96'%3E%F0%9F%92%B0%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">💱</div>
+      <div class="brand-text">
+        <h1>Casa de Cambio</h1>
+        <p class="tagline">Tipos de cambio simulados para prácticas de web scraping</p>
+      </div>
+    </div>
+
+    <nav class="top-actions" aria-label="acciones">
+      <a href="#spotlight" class="btn primary">USD → EUR</a>
+      <a href="#market" class="btn">Mercado</a>
+      <a href="#faq" class="btn">FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO / SPOTLIGHT -->
+    <section id="spotlight" class="spotlight" aria-labelledby="spotlight-title">
+      <div class="spotlight-card glass">
+        <h2 id="spotlight-title">Valor destacado</h2>
+        <p class="muted">Tasa fija de ejemplo (últ. actualización de demo: 05-Oct-2025)</p>
+
+        <!-- 🔽 OBJETIVO DEL SCRAPING -->
+        <div class="big-rate" data-testid="primary-rate">
+          <span class="pair" aria-label="par de divisas">1 USD =</span>
+          <span id="usd-eur-rate"
+                class="value"
+                data-base="USD"
+                data-quote="EUR"
+                data-simulated="true"
+                aria-live="polite">0.92</span>
+          <span class="unit">EUR</span>
+        </div>
+
+        <p class="hint">
+          (Este valor está <strong>hardcodeado</strong> para tu script. Cámbialo cuando quieras practicar).
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>¿Qué es esto?</h3>
+        <p>
+          Esta landing imita una casa de cambio con varios pares de divisas.
+          El objetivo del ejercicio es que con <strong>Python</strong> hagas
+          <em>web scraping</em> del valor <mark>USD→EUR</mark> mostrado arriba.
+        </p>
+        <ul class="checklist">
+          <li>Contenido estático (sin backend).</li>
+          <li>Estructura semántica y selectores claros.</li>
+          <li>Muchos “distractores” reales: más pares, cards, y tabla.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MÁS PARES EN CARDS -->
+    <section id="market" class="market" aria-labelledby="market-title">
+      <h2 id="market-title">Mercado de Divisas (simulado)</h2>
+      <div class="grid-cards">
+        <article class="rate-card">
+          <header>EUR → USD</header>
+          <div class="rate"><span class="pair">1 EUR =</span> <strong class="value">1.09</strong> <span class="unit">USD</span></div>
+          <p class="muted">Dato de muestra</p>
+        </article>
+        <article class="rate-card">
+          <header>GBP → EUR</header>
+          <div class="rate"><span class="pair">1 GBP =</span> <strong class="value">1.17</strong> <span class="unit">EUR</span></div>
+          <p class="muted">Dato de muestra</p>
+        </article>
+        <article class="rate-card">
+          <header>JPY → USD</header>
+          <div class="rate"><span class="pair">100 JPY =</span> <strong class="value">0.67</strong> <span class="unit">USD</span></div>
+          <p class="muted">Dato de muestra</p>
+        </article>
+        <article class="rate-card">
+          <header>USD → ARS</header>
+          <div class="rate"><span class="pair">1 USD =</span> <strong class="value">900.00</strong> <span class="unit">ARS</span></div>
+          <p class="muted">Dato de muestra</p>
+        </article>
+        <article class="rate-card">
+          <header>EUR → JPY</header>
+          <div class="rate"><span class="pair">1 EUR =</span> <strong class="value">160.00</strong> <span class="unit">JPY</span></div>
+          <p class="muted">Dato de muestra</p>
+        </article>
+        <article class="rate-card">
+          <header>USD → MXN</header>
+          <div class="rate"><span class="pair">1 USD =</span> <strong class="value">17.50</strong> <span class="unit">MXN</span></div>
+          <p class="muted">Dato de muestra</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TABLA (más “ruido” útil para scraping) -->
+    <section class="table-wrap" aria-labelledby="tabla-title">
+      <h2 id="tabla-title">Tabla de referencias (simuladas)</h2>
+      <div class="table-scroll">
+        <table class="rates-table" aria-describedby="tabla-note">
+          <caption id="tabla-note" class="muted">Valores ilustrativos para prácticas</caption>
+          <thead>
+            <tr>
+              <th>Par</th>
+              <th>Compra</th>
+              <th>Venta</th>
+              <th>Variación 24h</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>USD/EUR</td>
+              <td>0.92</td>
+              <td>0.94</td>
+              <td class="up">+0.10%</td>
+            </tr>
+            <tr>
+              <td>EUR/USD</td>
+              <td>1.08</td>
+              <td>1.10</td>
+              <td class="down">-0.06%</td>
+            </tr>
+            <tr>
+              <td>GBP/USD</td>
+              <td>1.25</td>
+              <td>1.26</td>
+              <td class="up">+0.03%</td>
+            </tr>
+            <tr>
+              <td>USD/BRL</td>
+              <td>5.10</td>
+              <td>5.18</td>
+              <td class="down">-0.20%</td>
+            </tr>
+            <tr>
+              <td>USD/CLP</td>
+              <td>920</td>
+              <td>928</td>
+              <td class="up">+0.12%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Preguntas frecuentes</h2>
+      <details>
+        <summary>¿Los datos son reales?</summary>
+        <p>No. Todas las cifras están <strong>simuladas</strong> y se incluyen solo para practicar scraping.</p>
+      </details>
+      <details>
+        <summary>¿Dónde está el valor que debo extraer?</summary>
+        <p>En el elemento con ID <code>usd-eur-rate</code> dentro del bloque “Valor destacado”.</p>
+      </details>
+      <details>
+        <summary>¿Puedo cambiar el formato?</summary>
+        <p>Sí, puedes modificar HTML/CSS/JS a tu gusto; el script de scraping debería adaptarse a selectores estables.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© 2025 Casa de Cambio (demo educativa). Hecha con ❤️ para prácticas de Python.</small>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
